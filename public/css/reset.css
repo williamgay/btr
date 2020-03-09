@@ -1,0 +1,59 @@
+.img1{
+    background-image: url('/imgs/pool1.png');
+    height: 290px;
+}
+.img >h2{
+    color: #f1b310;
+    font-size: 30px;
+    margin-left: 100px;
+    margin-top:40px;
+    background-color:rgba(192,192,192,0.3);
+    padding: 50px;
+    width: 500px;
+    border-radius: 25px;
+}
+.img2{
+    background-image: url('/imgs/pool2.png');
+    height: 290px;
+}
+.img3{
+    background-image: url('/imgs/pool3.png');
+    height: 290px;
+}
+.img4{
+    background-image: url('/imgs/pool4.png');
+    height: 290px;
+}
+.customBtn{
+    width: 200px;
+    height: 2em;
+    border-radius: 10px;
+}
+.login{
+    background-color: #931b1d;
+}
+.register{
+    background-color: #f1b310;
+}
+h2{
+    font-size: 3em;
+}
+h2{
+    font-size: 2em;
+}
+.h2-warning{
+    color: #f1b310;
+}
+.lastWeek{
+    background-image: url('/imgs/lastWeek.png');
+    height: 300px;
+    width: inherit;
+    position: relative;
+
+}
+.topRow{
+    margin: 0 auto;
+}
+/*body{*/
+/*    background-color: #5390ed;*/
+/*}*/

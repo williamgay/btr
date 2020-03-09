@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Client\Request;
 
-class States extends Model
+class State extends Model
 {
-    //
+
 }

@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('last-week', require('./components/LastWeeksWinners.vue').default);
+Vue.component('user-registration', require('./components/UserRegistration.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

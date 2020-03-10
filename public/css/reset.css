@@ -54,6 +54,9 @@ h2{
 .topRow{
     margin: 0 auto;
 }
+.fargoAlt{
+    cursor: pointer;
+}
 /*body{*/
 /*    background-color: #5390ed;*/
 /*}*/

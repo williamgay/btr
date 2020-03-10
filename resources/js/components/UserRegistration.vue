@@ -8,14 +8,14 @@
             <h2 style="font-weight: bolder;">Create Your Profile</h2>
         </div>
         <div class=" row justify-content-center">
-            <h2 class='text-center' style="color: #f1b310;">Before your begin, make sure you have a head and shoulder
+            <h2 class='text-center heading'>Before your begin, make sure you have a head and shoulder
                 pic of
                 yourself on your device so you can upload it.</h2>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                   <div class="card-header">Register</div>
+<!--                   <div class="card-header">Register</div>-->
 
                     <div class="card-body">
                         <form method="POST" action="">
@@ -31,6 +31,11 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <div class="col-md-6 offset-4 fargoAlt" @click="noFargo=true">
+                                    Click here if you don't have a Fargo Rating
+                                </div>
+                            </div>
+                            <div class="form-group row" v-if="noFargo">
                                 <label for="fargoAlt" class="col-md-4 col-form-label text-md-right">"If you don't have a Fargo Rating, please select"</label>
                                 <div class="col-md-6">
                                     <select id="fargoAlt" class="form-control" name="fargoAlt"
@@ -127,8 +132,7 @@
                                 <div class="col-md-6">
                                     <select id="location" class="form-control" name="location" value="">
                                         <option>Select Your Location</option>
-                                        <option>TODO:: NEED TO GET LIST OF Locations</option>
-                                       <option v-for = "(country, index) in countries" :key="index" :value="country.id">{{country.country}}</option>
+                                        <option v-for="option in locations" v-bind:value="option.id" >{{ option.name }}</option>
                                     </select>
                                 </div>
                             </div>
@@ -162,7 +166,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" :disabled='submitDisabled'>
                                         Register
                                     </button>
                                 </div>
@@ -182,12 +186,18 @@
             return {
                 countries: null,
                 selectedCountry: null,
-                states: null
+                states: null,
+                locations: null,
+                submitDisabled: true,
+                noFargo: false
             }
         },
         mounted() {
             axios.get("api/countries").then(res=>{
                 this.countries = res.data.data;
+            });
+            axios.get("api/locations").then(res=>{
+                this.locations = res.data.data;
             })
         },
         methods:{
@@ -199,3 +209,13 @@
         }
     }
 </script>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.fargoAlt:hover{
+    color: #EFB41D;
+    cursor: pointer;
+}
+    .heading{
+        color:#EFB41D;
+    }
+</style>

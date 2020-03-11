@@ -2162,6 +2162,63 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2170,7 +2227,10 @@ __webpack_require__.r(__webpack_exports__);
       states: null,
       locations: null,
       submitDisabled: true,
-      noFargo: false
+      noFargo: false,
+      getFargoStatus: "Click here if you don't have a Fargo Rating",
+      noLocation: false,
+      getLocationStatus: "Click to Add New Location"
     };
   },
   mounted: function mounted() {
@@ -2190,6 +2250,24 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("api/states/" + this.selectedCountry).then(function (res) {
         _this2.states = res.data.data;
       });
+    },
+    toggleNoFargo: function toggleNoFargo() {
+      this.noFargo = !this.noFargo;
+
+      if (!this.noFargo) {
+        this.getFargoStatus = "Click here if you don't have a Fargo Rating ";
+      } else {
+        this.getFargoStatus = "Click here to Enter Fargo Rating";
+      }
+    },
+    toggleNoLocation: function toggleNoLocation() {
+      this.noLocation = !this.noLocation;
+
+      if (!this.noLocation) {
+        this.getLocationStatus = "Click to Add New Location";
+      } else {
+        this.getLocationStatus = "Click to Select Location";
+      }
     }
   }
 });
@@ -6739,7 +6817,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.fargoAlt[data-v-63989ee2]:hover{\n    color: #EFB41D;\n    cursor: pointer;\n}\n.heading[data-v-63989ee2]{\n        color:#EFB41D;\n}\n", ""]);
+exports.push([module.i, "\n.fargoAlt[data-v-63989ee2]:hover {\n    color: #EFB41D;\n    cursor: pointer;\n}\n.heading[data-v-63989ee2] {\n    color: #EFB41D;\n}\n", ""]);
 
 // exports
 
@@ -38328,26 +38406,24 @@ var render = function() {
                 _vm._v(
                   "\n                            @csrf\n                            "
                 ),
-                _vm._m(3),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group row" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "col-md-6 offset-4 fargoAlt",
-                      on: {
-                        click: function($event) {
-                          _vm.noFargo = true
-                        }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                                    Click here if you don't have a Fargo Rating\n                                "
-                      )
-                    ]
-                  )
-                ]),
+                !_vm.noFargo
+                  ? _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-4 col-form-label text-md-right",
+                          attrs: { for: "fargo" }
+                        },
+                        [
+                          _vm._v(
+                            "What is your Fargo\n                                    Rating?"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(3)
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
                 _vm.noFargo
                   ? _c("div", { staticClass: "form-group row" }, [
@@ -38359,7 +38435,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            '"If you don\'t have a Fargo Rating, please select"'
+                            "Please Select\n                                    Skill Level"
                           )
                         ]
                       ),
@@ -38368,11 +38444,32 @@ var render = function() {
                     ])
                   : _vm._e(),
                 _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "col-md-6 offset-4 fargoAlt",
+                      on: { click: _vm.toggleNoFargo }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                    " +
+                          _vm._s(_vm.getFargoStatus) +
+                          "\n                                "
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
                 _vm._m(5),
                 _vm._v(" "),
                 _vm._m(6),
                 _vm._v(" "),
                 _vm._m(7),
+                _vm._v(" "),
+                _vm._m(8),
+                _vm._v(" "),
+                _vm._m(9),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group row" }, [
                   _c(
@@ -38429,7 +38526,12 @@ var render = function() {
                           return _c(
                             "option",
                             { domProps: { value: option.id } },
-                            [_vm._v(_vm._s(option.name))]
+                            [
+                              _vm._v(
+                                _vm._s(option.name) +
+                                  "\n                                        "
+                              )
+                            ]
                           )
                         })
                       ],
@@ -38437,10 +38539,6 @@ var render = function() {
                     )
                   ])
                 ]),
-                _vm._v(" "),
-                _vm._m(8),
-                _vm._v(" "),
-                _vm._m(9),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group row" }, [
                   _c(
@@ -38471,7 +38569,12 @@ var render = function() {
                           return _c(
                             "option",
                             { domProps: { value: option.id } },
-                            [_vm._v(_vm._s(option.name))]
+                            [
+                              _vm._v(
+                                _vm._s(option.name) +
+                                  "\n                                        "
+                              )
+                            ]
                           )
                         })
                       ],
@@ -38482,44 +38585,202 @@ var render = function() {
                 _vm._v(" "),
                 _vm._m(10),
                 _vm._v(" "),
+                !_vm.noLocation
+                  ? _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-4 col-form-label text-md-right",
+                          attrs: { for: "location" }
+                        },
+                        [_vm._v("Select Your Location")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c(
+                          "select",
+                          {
+                            staticClass: "form-control",
+                            attrs: {
+                              id: "location",
+                              name: "location",
+                              value: ""
+                            }
+                          },
+                          [
+                            _c("option", [_vm._v("Select Your Location")]),
+                            _vm._v(" "),
+                            _vm._l(_vm.locations, function(option) {
+                              return _c(
+                                "option",
+                                { domProps: { value: option.id } },
+                                [
+                                  _vm._v(
+                                    _vm._s(option.name) +
+                                      "\n                                        "
+                                  )
+                                ]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.noLocation
+                  ? _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-4 col-form-label text-md-right",
+                          attrs: { for: "newLocation" }
+                        },
+                        [_vm._v("New Location Name")]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(11)
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.noLocation
+                  ? _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-4 col-form-label text-md-right",
+                          attrs: { for: "newLocationCity" }
+                        },
+                        [_vm._v("New Location City")]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(12)
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.noLocation
+                  ? _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-4 col-form-label text-md-right",
+                          attrs: { for: "newLocationState" }
+                        },
+                        [_vm._v("New Location State")]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(13)
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.noLocation
+                  ? _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-4 col-form-label text-md-right",
+                          attrs: { for: "newLocationCountry" }
+                        },
+                        [_vm._v("New Location Country")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.newLocationCountry,
+                                expression: "newLocationCountry"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              id: "NewLocationCountry",
+                              name: "country",
+                              value: "",
+                              required: ""
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.newLocationCountry = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          [
+                            _c("option", [_vm._v("Select Your Country")]),
+                            _vm._v(" "),
+                            _vm._l(_vm.countries, function(option) {
+                              return _c(
+                                "option",
+                                { domProps: { value: option.id } },
+                                [
+                                  _vm._v(
+                                    _vm._s(option.name) +
+                                      "\n                                        "
+                                  )
+                                ]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "col-md-6 offset-4 fargoAlt",
+                      on: { click: _vm.toggleNoLocation }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                    " +
+                          _vm._s(_vm.getLocationStatus) +
+                          "\n                                "
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
                 _c("div", { staticClass: "form-group row" }, [
                   _c(
                     "label",
                     {
                       staticClass: "col-md-4 col-form-label text-md-right",
-                      attrs: { for: "location" }
+                      attrs: { for: "image" }
                     },
-                    [_vm._v("Select Your Location")]
+                    [_vm._v("Upload Photo")]
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-6" }, [
-                    _c(
-                      "select",
-                      {
-                        staticClass: "form-control",
-                        attrs: { id: "location", name: "location", value: "" }
-                      },
-                      [
-                        _c("option", [_vm._v("Select Your Location")]),
-                        _vm._v(" "),
-                        _vm._l(_vm.locations, function(option) {
-                          return _c(
-                            "option",
-                            { domProps: { value: option.id } },
-                            [_vm._v(_vm._s(option.name))]
-                          )
-                        })
-                      ],
-                      2
-                    )
+                    _c("input", {
+                      staticClass: "form-control",
+                      attrs: { type: "file", id: "image" },
+                      on: { change: _vm.onImageChange }
+                    })
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(11),
+                _vm._m(14),
                 _vm._v(" "),
-                _vm._m(12),
-                _vm._v(" "),
-                _vm._m(13),
+                _vm._m(15),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group row mb-0" }, [
                   _c("div", { staticClass: "col-md-6 offset-md-4" }, [
@@ -38585,28 +38846,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row" }, [
-      _c(
-        "label",
-        {
-          staticClass: "col-md-4 col-form-label text-md-right",
-          attrs: { for: "fargo" }
-        },
-        [_vm._v("What is your Fargo Rating?")]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            id: "fargo",
-            type: "text",
-            name: "fargo",
-            value: "",
-            autofocus: ""
-          }
-        })
-      ])
+    return _c("div", { staticClass: "col-md-6" }, [
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          id: "fargo",
+          type: "text",
+          name: "fargo",
+          value: "",
+          autofocus: ""
+        }
+      })
     ])
   },
   function() {
@@ -38832,27 +39082,48 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row" }, [
-      _c(
-        "label",
-        {
-          staticClass: "col-md-4 col-form-label text-md-right",
-          attrs: { for: "newLocation" }
-        },
-        [_vm._v("Or Add New Location")]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            id: "newLocation",
-            type: "text",
-            name: "newLocation",
-            value: ""
-          }
-        })
-      ])
+    return _c("div", { staticClass: "col-md-6" }, [
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          id: "newLocation",
+          type: "text",
+          name: "newLocation",
+          value: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-6" }, [
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          id: "newLocationCity",
+          type: "text",
+          name: "newLocationCity",
+          value: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-6" }, [
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          id: "newLocationState",
+          type: "text",
+          name: "newLocationState",
+          value: ""
+        }
+      })
     ])
   },
   function() {

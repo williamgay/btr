@@ -1,6 +1,7 @@
 <template>
     <section>
         <div class="container">
+
             <div class=" row justify-content-center topRow" style='padding-top: 70px; margin: 0 auto;'>
                 <h3>Welcome to Behind the Rock Membership Registration</h3>
             </div>
@@ -18,8 +19,8 @@
                         <!--                   <div class="card-header">Register</div>-->
 
                         <div class="card-body">
-                            <form method="POST" action="">
-                                @csrf
+                            <form method="POST" @submit="submitForm" enctype="multipart/form-data">
+                                <input type ="hidden" :value="csrfToken" name="_token"/>
                                 <div class="form-group row" v-if="!noFargo">
                                     <label for="fargo"
                                            class="col-md-4 col-form-label text-md-right">What is your Fargo
@@ -27,7 +28,7 @@
 
                                     <div class="col-md-6">
                                         <input id="fargo" type="text" class="form-control" name="fargo"
-                                               value="" autofocus>
+                                               v-model="fields.fargo" autofocus>
 
                                     </div>
                                 </div>
@@ -36,7 +37,7 @@
                                         Skill Level</label>
                                     <div class="col-md-6">
                                         <select id="fargoAlt" class="form-control" name="fargoAlt"
-                                                value="">
+                                                v-model="fields.fargoAlt">
                                             <option selected>Rate Your 9-ball skill level</option>
                                             option>
                                             <option value='professional'>A+++ Professional</option>
@@ -60,7 +61,7 @@
                                            class="col-md-4 col-form-label text-md-right">First Name</label>
 
                                     <div class="col-md-6">
-                                        <input id="firstName" type="text" class="form-control" name="firstName" value=""
+                                        <input id="firstName" type="text" class="form-control" name="firstName" v-model="fields.firstName"
                                                required autocomplete="firstName">
                                     </div>
                                 </div>
@@ -69,7 +70,7 @@
                                            class="col-md-4 col-form-label text-md-right">Last Name</label>
 
                                     <div class="col-md-6">
-                                        <input id="lastName" type="text" class="form-control" name="lastName" value=""
+                                        <input id="lastName" type="text" class="form-control" name="lastName" v-model="fields.lastName"
                                                required autocomplete="lastName">
 
                                     </div>
@@ -79,7 +80,7 @@
                                            class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
 
                                     <div class="col-md-6">
-                                        <input id="email" type="email" class="form-control" name="email" value=""
+                                        <input id="email" type="email" class="form-control" name="email" v-model="fields.email"
                                                required autocomplete="email">
                                     </div>
                                 </div>
@@ -89,7 +90,7 @@
 
                                     <div class="col-md-6">
                                         <input id="streetAddress" type="text" class="form-control" name="streetAddress"
-                                               value=""
+                                               v-model="fields.streetAddress"
                                                required autocomplete="streetAddress">
                                     </div>
                                 </div>
@@ -98,7 +99,7 @@
 
                                     <div class="col-md-6">
                                         <input id="city" type="text"
-                                               class="form-control" name="city" value="" required autocomplete="city">
+                                               class="form-control" name="city" v-model="fields.city" required autocomplete="city">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -106,8 +107,8 @@
                                            class="col-md-4 col-form-label text-md-right">Select Your Country</label>
 
                                     <div class="col-md-6">
-                                        <select id="country" class="form-control" name="country" value=""
-                                                v-model="selectedCountry" required @change="getStates">
+                                        <select id="country" class="form-control" name="country" v-model="selectedCountry"
+                                                 required @change="getStates">
                                             <option>Select Your Country</option>
                                             <option v-for="option in countries" v-bind:value="option.id">{{ option.name
                                                 }}
@@ -120,7 +121,7 @@
                                            class="col-md-4 col-form-label text-md-right">'Select Your State</label>
 
                                     <div class="col-md-6">
-                                        <select id="state" class="form-control" name="state" value="" required>
+                                        <select id="state" class="form-control" name="state" v-model="fields.state" required>
                                             <option>Select Your State</option>
                                             <option v-for="option in states" v-bind:value="option.id">{{ option.name }}
                                             </option>
@@ -131,7 +132,7 @@
                                     <label for="zip" class="col-md-4 col-form-label text-md-right">Postal Code</label>
 
                                     <div class="col-md-6">
-                                        <input id="zip" type="text" class="form-control" name="zip" value="" required
+                                        <input id="zip" type="text" class="form-control" name="zip" v-model="fields.zip" required
                                                autocomplete="postalCode">
                                     </div>
                                 </div>
@@ -140,7 +141,7 @@
                                            class="col-md-4 col-form-label text-md-right">Select Your Location</label>
 
                                     <div class="col-md-6">
-                                        <select id="location" class="form-control" name="location" value="">
+                                        <select id="location" class="form-control" name="location" v-model="fields.location">
                                             <option>Select Your Location</option>
                                             <option v-for="option in locations" v-bind:value="option.id">{{ option.name
                                                 }}
@@ -154,7 +155,7 @@
 
                                     <div class="col-md-6">
                                         <input id="newLocation" type="text" class="form-control" name="newLocation"
-                                               value="">
+                                               v-model="fields.newLocation">
                                     </div>
                                 </div>
                                 <div class="form-group row" v-if="noLocation">
@@ -163,7 +164,7 @@
 
                                     <div class="col-md-6">
                                         <input id="newLocationCity" type="text" class="form-control" name="newLocationCity"
-                                               value="">
+                                               v-model="fields.newLocationCity">
                                     </div>
                                 </div>
                                 <div class="form-group row" v-if="noLocation">
@@ -172,7 +173,7 @@
 
                                     <div class="col-md-6">
                                         <input id="newLocationState" type="text" class="form-control" name="newLocationState"
-                                               value="">
+                                               v-model="fields.newLocationState">
                                     </div>
                                 </div>
                                 <div class="form-group row" v-if="noLocation">
@@ -181,7 +182,7 @@
 
                                     <div class="col-md-6">
                                         <select id="NewLocationCountry" class="form-control" name="country" value=""
-                                                v-model="newLocationCountry" required>
+                                                v-model="fields.newLocationCountry">
                                             <option>Select Your Country</option>
                                             <option v-for="option in countries" v-bind:value="option.id">{{ option.name
                                                 }}
@@ -198,14 +199,14 @@
                                     <label for="image" class="col-md-4 col-form-label text-md-right">Upload Photo</label>
 
                                     <div class="col-md-6">
-                                        <input type="file" id = "image" class="form-control" v-on:change="onImageChange">
+                                        <input type="file" id = "image" class="form-control"  v-on:change="onImageChange">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
 
                                     <div class="col-md-6">
-                                        <input id="password" type="password"
+                                        <input id="password" type="password" v-model="fields.password"
                                                class="form-control" name="password" required
                                                autocomplete="new-password">
                                     </div>
@@ -217,13 +218,13 @@
 
                                     <div class="col-md-6">
                                         <input id="password-confirm" type="password" class="form-control"
-                                               name="password_confirmation" required autocomplete="new-password">
+                                               name="password_confirmation" v-model="fields.confirmPassword" required autocomplete="new-password">
                                     </div>
                                 </div>
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary" :disabled='submitDisabled'>
+                                        <button type="submit" class="btn btn-primary">
                                             Register
                                         </button>
                                     </div>
@@ -242,23 +243,26 @@
         data() {
             return {
                 countries: null,
+                csrfToken: null,
                 selectedCountry: null,
                 states: null,
                 locations: null,
-                submitDisabled: true,
                 noFargo: false,
                 getFargoStatus: "Click here if you don't have a Fargo Rating",
                 noLocation: false,
-                getLocationStatus: "Click to Add New Location"
+                getLocationStatus: "Click to Add New Location",
+                fields: {},
+                profileImage: null
             }
         },
         mounted() {
+            this.csrfToken = document.querySelector('meta[name="csrf-token"]').content
             axios.get("api/countries").then(res => {
                 this.countries = res.data.data;
             });
             axios.get("api/locations").then(res => {
                 this.locations = res.data.data;
-            })
+            });
         },
         methods: {
             getStates() {
@@ -281,6 +285,17 @@
                 } else {
                     this.getLocationStatus = "Click to Select Location";
                 }
+            },
+            onImageChange(e){
+                this.profileImage = e.target.files[0];
+            },
+            submitForm(e){
+               this.fields.profileImage = this.profileImage;
+               this.fields.selectedCountry = this.selectedCountry;
+                console.log(this.fields);
+                axios.post("api/register", this.fields).then(res => {
+                    console.log(res)
+                })
             }
         }
     }

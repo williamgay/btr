@@ -21,4 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('countries', 'CountryController@index');
 Route::get('states/{id}', 'StateController@index');
 Route::get('locations', 'LocationController@index');
-Route::post('register', 'Auth/RegisterController@create');
+Route::post('register', 'UserController@register');

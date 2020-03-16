@@ -14,4 +14,8 @@ class CountryController extends Controller
         $countries = Country::all();
         return CountryResource::collection($countries);
     }
+    public function test(Request $request)
+    {
+        return $request->country;
+    }
 }

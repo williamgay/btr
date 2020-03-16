@@ -150,7 +150,7 @@ sup {
 }
 
 a {
-  color: #DF691A;
+  color: #f1b310;
   text-decoration: none;
   background-color: transparent;
 }
@@ -10909,12 +10909,12 @@ label,
 .help-block {
   font-size: 0.875rem;
 }
+.sideNav{
+  background-color: #003666;
 
-.nav-tabs .nav-link,
-.nav-tabs .nav-link:hover,
-.nav-pills .nav-link,
-.nav-pills .nav-link:hover {
-  color: #EBEBEB;
+}
+.nav-link:hover {
+  color: #931b1d;
 }
 
 .nav-tabs .nav-link.disabled,
@@ -10999,4 +10999,16 @@ label,
 }
 .navbar{
   height: 70px;
+}
+.profileImg{
+  width: 70px;
+  height: 45px;
+  margin: 1rem;
+}
+.sideNav:hover{
+  color: #FF0000;
+}
+.footerText{
+  padding-top: 3rem;
+  text-align: center;
 }

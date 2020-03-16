@@ -24,6 +24,10 @@
     background-image: url('/imgs/pool4.png');
     height: 290px;
 }
+.img5{
+    background-image: url('/imgs/pool5.png');
+    height: 290px;
+}
 .customBtn{
     width: 200px;
     height: 2em;
@@ -57,6 +61,7 @@ h2{
 .fargoAlt{
     cursor: pointer;
 }
+
 /*body{*/
 /*    background-color: #5390ed;*/
 /*}*/

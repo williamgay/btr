@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('state');
             $table->string('zip');
             $table->string('location');
+            $table->string('profile_img')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

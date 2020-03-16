@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -68,21 +69,21 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(Request $request)
     {
-        //dd($data);
+        dd($request);
         return User::create([
-            'firstName' => $data['firstName'],
-            'lastName' => $data['lastName'],
-            'email' => $data['email'],
-            'fargo'=>$data['fargo'],
-            'country'=>$data['country'],
-            'streetAddress'=>$data['streetAddress'],
-            'city'=>$data['city'],
-            'state'=>$data['state'],
-            'zip'=>$data['zip'],
-            'location'=>$data['location'],
-            'password' => Hash::make($data['password']),
+//            'firstName' => $data['firstName'],
+//            'lastName' => $data['lastName'],
+//            'email' => $data['email'],
+//            'fargo'=>$data['fargo'],
+//            'country'=>$data['country'],
+//            'streetAddress'=>$data['streetAddress'],
+//            'city'=>$data['city'],
+//            'state'=>$data['state'],
+//            'zip'=>$data['zip'],
+//            'location'=>$data['location'],
+//            'password' => Hash::make($data['password']),
         ]);
     }
 }

@@ -19,7 +19,7 @@
                         <!--                   <div class="card-header">Register</div>-->
 
                         <div class="card-body">
-                            <form method="POST" @submit="submitForm" enctype="multipart/form-data">
+                            <form method="POST" action="/register">
                                 <input type ="hidden" :value="csrfToken" name="_token"/>
                                 <div class="form-group row" v-if="!noFargo">
                                     <label for="fargo"
@@ -28,7 +28,7 @@
 
                                     <div class="col-md-6">
                                         <input id="fargo" type="text" class="form-control" name="fargo"
-                                               v-model="fields.fargo" autofocus>
+                                               v-model="fargo" autofocus>
 
                                     </div>
                                 </div>
@@ -37,7 +37,7 @@
                                         Skill Level</label>
                                     <div class="col-md-6">
                                         <select id="fargoAlt" class="form-control" name="fargoAlt"
-                                                v-model="fields.fargoAlt">
+                                                v-model="fargoAlt">
                                             <option selected>Rate Your 9-ball skill level</option>
                                             option>
                                             <option value='professional'>A+++ Professional</option>
@@ -47,7 +47,6 @@
                                             <option value='openAmateur'>B Open Amateur</option>
                                             <option value='intermediateAmateur'>C-D Intermediate Amateur</option>
                                         </select>
-
                                     </div>
                                 </div>
 
@@ -61,8 +60,8 @@
                                            class="col-md-4 col-form-label text-md-right">First Name</label>
 
                                     <div class="col-md-6">
-                                        <input id="firstName" type="text" class="form-control" name="firstName" v-model="fields.firstName"
-                                               required autocomplete="firstName">
+                                        <input id="firstName" type="text" class="form-control" name="firstName" v-model="firstName"
+                                               required autocomplete="firstname">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -70,9 +69,8 @@
                                            class="col-md-4 col-form-label text-md-right">Last Name</label>
 
                                     <div class="col-md-6">
-                                        <input id="lastName" type="text" class="form-control" name="lastName" v-model="fields.lastName"
-                                               required autocomplete="lastName">
-
+                                        <input id="lastName" type="text" class="form-control" name="lastName" v-model="lastName"
+                                               required autocomplete="lastname">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -80,7 +78,7 @@
                                            class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
 
                                     <div class="col-md-6">
-                                        <input id="email" type="email" class="form-control" name="email" v-model="fields.email"
+                                        <input id="email" type="email" class="form-control" name="email" v-model="email"
                                                required autocomplete="email">
                                     </div>
                                 </div>
@@ -90,7 +88,7 @@
 
                                     <div class="col-md-6">
                                         <input id="streetAddress" type="text" class="form-control" name="streetAddress"
-                                               v-model="fields.streetAddress"
+                                               v-model="streetAddress"
                                                required autocomplete="streetAddress">
                                     </div>
                                 </div>
@@ -99,7 +97,7 @@
 
                                     <div class="col-md-6">
                                         <input id="city" type="text"
-                                               class="form-control" name="city" v-model="fields.city" required autocomplete="city">
+                                               class="form-control" name="city" v-model="city" required autocomplete="city">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -121,7 +119,7 @@
                                            class="col-md-4 col-form-label text-md-right">'Select Your State</label>
 
                                     <div class="col-md-6">
-                                        <select id="state" class="form-control" name="state" v-model="fields.state" required>
+                                        <select id="state" class="form-control" name="state" v-model="state" required>
                                             <option>Select Your State</option>
                                             <option v-for="option in states" v-bind:value="option.id">{{ option.name }}
                                             </option>
@@ -132,7 +130,7 @@
                                     <label for="zip" class="col-md-4 col-form-label text-md-right">Postal Code</label>
 
                                     <div class="col-md-6">
-                                        <input id="zip" type="text" class="form-control" name="zip" v-model="fields.zip" required
+                                        <input id="zip" type="text" class="form-control" name="zip" v-model="zip" required
                                                autocomplete="postalCode">
                                     </div>
                                 </div>
@@ -141,7 +139,7 @@
                                            class="col-md-4 col-form-label text-md-right">Select Your Location</label>
 
                                     <div class="col-md-6">
-                                        <select id="location" class="form-control" name="location" v-model="fields.location">
+                                        <select id="location" class="form-control" name="location" v-model="location">
                                             <option>Select Your Location</option>
                                             <option v-for="option in locations" v-bind:value="option.id">{{ option.name
                                                 }}
@@ -155,7 +153,7 @@
 
                                     <div class="col-md-6">
                                         <input id="newLocation" type="text" class="form-control" name="newLocation"
-                                               v-model="fields.newLocation">
+                                               v-model="newLocation">
                                     </div>
                                 </div>
                                 <div class="form-group row" v-if="noLocation">
@@ -164,7 +162,7 @@
 
                                     <div class="col-md-6">
                                         <input id="newLocationCity" type="text" class="form-control" name="newLocationCity"
-                                               v-model="fields.newLocationCity">
+                                               v-model="newLocationCity">
                                     </div>
                                 </div>
                                 <div class="form-group row" v-if="noLocation">
@@ -173,7 +171,7 @@
 
                                     <div class="col-md-6">
                                         <input id="newLocationState" type="text" class="form-control" name="newLocationState"
-                                               v-model="fields.newLocationState">
+                                               v-model="newLocationState">
                                     </div>
                                 </div>
                                 <div class="form-group row" v-if="noLocation">
@@ -182,7 +180,7 @@
 
                                     <div class="col-md-6">
                                         <select id="NewLocationCountry" class="form-control" name="country" value=""
-                                                v-model="fields.newLocationCountry">
+                                                v-model="newLocationCountry">
                                             <option>Select Your Country</option>
                                             <option v-for="option in countries" v-bind:value="option.id">{{ option.name
                                                 }}
@@ -196,17 +194,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="image" class="col-md-4 col-form-label text-md-right">Upload Photo</label>
-
-                                    <div class="col-md-6">
-                                        <input type="file" id = "image" class="form-control"  v-on:change="onImageChange">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
                                     <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
 
                                     <div class="col-md-6">
-                                        <input id="password" type="password" v-model="fields.password"
+                                        <input id="password" type="password" v-model="password"
                                                class="form-control" name="password" required
                                                autocomplete="new-password">
                                     </div>
@@ -218,13 +209,13 @@
 
                                     <div class="col-md-6">
                                         <input id="password-confirm" type="password" class="form-control"
-                                               name="password_confirmation" v-model="fields.confirmPassword" required autocomplete="new-password">
+                                               name="password_confirmation" v-model="confirmPassword" required autocomplete="new-password">
                                     </div>
                                 </div>
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-primary" @click="handleSubmit">
                                             Register
                                         </button>
                                     </div>
@@ -251,18 +242,39 @@
                 getFargoStatus: "Click here if you don't have a Fargo Rating",
                 noLocation: false,
                 getLocationStatus: "Click to Add New Location",
-                fields: {},
-                profileImage: null
+                firstName: null,
+                lastName: null,
+                email: null,
+                streetAddress: null,
+                city: null,
+                state: null,
+                zip: null,
+                location: null,
+                fargo: null,
+                fargoAlt: null,
+                newLocation: null,
+                newLocationCity: null,
+                newLocationState: null,
+                newLocationCountry: null,
+                password: null,
+                confirmPassword: null,
             }
         },
         mounted() {
             this.csrfToken = document.querySelector('meta[name="csrf-token"]').content
             axios.get("api/countries").then(res => {
+                console.log(res)
                 this.countries = res.data.data;
             });
             axios.get("api/locations").then(res => {
                 this.locations = res.data.data;
             });
+            // swal.fire({
+            //   title: "Refund Policy",
+            //   text:
+            //     "Refunds will only be issued up until 2 weeks prior to campers start date.",
+            //   icon: "info"
+            // });
         },
         methods: {
             getStates() {
@@ -286,16 +298,57 @@
                     this.getLocationStatus = "Click to Select Location";
                 }
             },
-            onImageChange(e){
-                this.profileImage = e.target.files[0];
-            },
-            submitForm(e){
-               this.fields.profileImage = this.profileImage;
-               this.fields.selectedCountry = this.selectedCountry;
-                console.log(this.fields);
-                axios.post("api/register", this.fields).then(res => {
-                    console.log(res)
-                })
+            handleSubmit(e) {
+                e.preventDefault();
+
+                if (this.password === this.confirmPassword && this.password.length > 0)
+                {
+                    axios.post('api/register', {
+                        firstName: this.firstName,
+                        lastName: this.lastName,
+                        fargo: this.fargo,
+                        fargoAlt: this.fargoAlt,
+                        streetAddress: this.streetAddress,
+                        city: this.city,
+                        state: this.state,
+                        zip: this.zip,
+                        location: this.location,
+                        country: this.selectedCountry,
+                        email: this.email,
+                        password: this.password,
+                        c_password : this.confirmPassword
+                    })
+                        .then(response => {
+                            console.log(response)
+                            localStorage.setItem('user',response.data.success.name)
+                            localStorage.setItem('jwt',response.data.success.token)
+                            swal.fire({
+                                title: "Success",
+                                text:
+                                    "You have registered successfully! You will now be redirected to log in page.",
+                                icon: "success",
+                                confirmButtonText: "Close",
+                                showCloseButton: false,
+                                showCancelButton: false,
+                                onClose: () => {
+                                    window.location = "login";
+                                }
+                            });
+
+
+                            // if (localStorage.getItem('jwt') != null){
+                            //     this.$router.go('/board')
+                            // }
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+                } else {
+                    this.password = ""
+                    this.confirmPassword = ""
+
+                    return alert('Passwords do not match')
+                }
             }
         }
     }

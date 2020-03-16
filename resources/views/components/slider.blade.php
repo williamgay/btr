@@ -31,6 +31,10 @@
                             <h2>Lorem Ipsum dolomar.....<br>
                                 Need to decide on what text will be</h2>
                         </li>
+                        <li class="img img5">
+                            <h2>Lorem Ipsum dolomar.....<br>
+                                Need to decide on what text will be</h2>
+                        </li>
                     </ul>
                     </div>
                 </div>

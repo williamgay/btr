@@ -21,55 +21,66 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{asset('imgs/logo.png')}}">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
+            <a href="../" class="navbar-brand"><img src="{{asset('imgs/logo.png')}}"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
-
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <li class = 'nav-item'>
+                    <a href ="{{route('captains')}}">Captains</a>
+                </li>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Tour Info <span class="caret"></span></a>
+                        <div class="dropdown-menu" aria-labelledby="themes">
+                            <a class="dropdown-item" href="{{route('general_information')}}">General Information</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{route('btrt_membership')}}">BTR Membership</a>
+                            <a class="dropdown-item" href="../cosmo/">Cosmo</a>
+                            <a class="dropdown-item" href="../cyborg/">Cyborg</a>
+                            <a class="dropdown-item" href="../darkly/">Darkly</a>
+                            <a class="dropdown-item" href="../flatly/">Flatly</a>
+                            <a class="dropdown-item" href="../journal/">Journal</a>
+                            <a class="dropdown-item" href="../litera/">Litera</a>
+                            <a class="dropdown-item" href="../lumen/">Lumen</a>
+                            <a class="dropdown-item" href="../lux/">Lux</a>
+                            <a class="dropdown-item" href="../materia/">Materia</a>
+                            <a class="dropdown-item" href="../minty/">Minty</a>
+                            <a class="dropdown-item" href="../pulse/">Pulse</a>
+                            <a class="dropdown-item" href="../sandstone/">Sandstone</a>
+                            <a class="dropdown-item" href="../simplex/">Simplex</a>
+                            <a class="dropdown-item" href="../sketchy/">Sketchy</a>
+                            <a class="dropdown-item" href="../slate/">Slate</a>
+                            <a class="dropdown-item" href="../solar/">Solar</a>
+                            <a class="dropdown-item" href="../spacelab/">Spacelab</a>
+                            <a class="dropdown-item" href="../superhero/">Superhero</a>
+                            <a class="dropdown-item" href="../united/">United</a>
+                            <a class="dropdown-item" href="../yeti/">Yeti</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="..">Rules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Players</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Store</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Contact</a>
+                    </li>
+                    
                 </ul>
 
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
-
-                    @if(Auth::user())
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Welcome {{ Auth::user()->firstName }}  {{ Auth::user()->lastName }}<span class="caret">
-                                       @if(Auth::user()->profileImg)
-                                        <img src="{{asset('images/'. Auth::user()->profileImg)}}"
-                                             class="profileImg"></span>
-                                @endif
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                    @endif
-                </ul>
             </div>
         </div>
-    </nav>
+    </div>
     <div class="separator"></div>
     <main class="py-4">
         @yield('content')

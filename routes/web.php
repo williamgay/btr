@@ -22,3 +22,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('image-upload', 'ImageUploadController@imageUpload')->name('image.upload');
 Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('image.upload.post');
+Route::get('captains', 'CaptainController@index')->name('captains');
+Route::get('general_information', 'PagesController@generalinformation')->name('general_information');
+Route::get('btrt_membership','PagesController@btrtMembership')->name('btrt_membership');

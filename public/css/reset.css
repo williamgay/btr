@@ -34,6 +34,7 @@
     margin-bottom: -100px;
     margin-top: -100px;
     z-index: 10000;
+    border: 1px solid #FFFFFF;
 }
 .login{
     background-color: #931b1d;
@@ -50,8 +51,17 @@ h2{
 .h2-warning{
     color: #f1b310;
 }
+.yellowTxt{
+    color: #f1b310;
+}
+.redText{
+    color: #931b1d;
+}
+.centeredTxt{
+    text-align: center;
+}
 .lastWeek{
-    background-image: url('/imgs/lastWeek.png');
+    /*background-image: url('/imgs/lastWeek.png');*/
     height: 300px;
     width: inherit;
     position: relative;

@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
@@ -38,10 +39,10 @@
                             <a class="dropdown-item" href="{{route('general_information')}}">General Information</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{route('btrt_membership')}}">BTR Membership</a>
-                            <a class="dropdown-item" href="../cosmo/">Cosmo</a>
-                            <a class="dropdown-item" href="../cyborg/">Cyborg</a>
-                            <a class="dropdown-item" href="../darkly/">Darkly</a>
-                            <a class="dropdown-item" href="../flatly/">Flatly</a>
+                            <a class="dropdown-item" href="{{route('getting_started')}}">Getting Started</a>
+                            <a class="dropdown-item" href="{{route('game_played')}}">Games Played</a>
+                            <a class="dropdown-item" href="{{route('commissions')}}">Commissions and Referrals</a>
+                            <a class="dropdown-item" href="{{route('getRoomPlaying')}}">How to Get Your Room Started</a>
                             <a class="dropdown-item" href="../journal/">Journal</a>
                             <a class="dropdown-item" href="../litera/">Litera</a>
                             <a class="dropdown-item" href="../lumen/">Lumen</a>
@@ -75,7 +76,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="">Contact</a>
                     </li>
-                    
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">Spacelab <span class="caret"></span></a>
+                        <div class="dropdown-menu" aria-labelledby="download">
+                            <a class="dropdown-item" target="_blank" href="https://jsfiddle.net/bootswatch/Laobkr1d/">Open in JSFiddle</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="../4/spacelab/bootstrap.min.css" download>bootstrap.min.css</a>
+                            <a class="dropdown-item" href="../4/spacelab/bootstrap.css" download>bootstrap.css</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="../4/spacelab/_variables.scss" download>_variables.scss</a>
+                            <a class="dropdown-item" href="../4/spacelab/_bootswatch.scss" download>_bootswatch.scss</a>
+                        </div>
+                    </li>
                 </ul>
 
             </div>
@@ -109,7 +122,7 @@
         </div>
         <div class="row">
             <div class="fb-like pull-right col-sm-4 offset-8"
-                 style='background-color: white;padding: 5px 5px;border-radius: 5px; float:right; margin-top:-5px;'
+                 style='background-color: white;padding: 5px 5px;border-radius: 5px; float:right; margin-top:5px;'
                  data-href="https://www.behindtherock.org/" data-layout="standard" data-action="like" data-size="large"
                  data-show-faces="true" data-share="false">
 

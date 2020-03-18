@@ -58,6 +58,16 @@ body {
   color: #EBEBEB;
   text-align: left;
   background-color: #003666;
+  /*background-image: url("/imgs/background1.png");*/
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#app{
+  background-image: url("/imgs/background2.png");
+  /*background-image: url("/imgs/background1.png");*/
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #FFFFFF;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {

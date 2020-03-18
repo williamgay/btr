@@ -14,4 +14,20 @@ class PagesController extends Controller
    {
        return view('btrt_membership');
    }
+   public function gettingStarted()
+   {
+       return view('getting_started');
+   }
+   public function gamePlayed()
+   {
+       return view('game_played');
+   }
+   public function commissions()
+   {
+       return view('commissions');
+   }
+   public function getYourRoomPlaying()
+   {
+       return view('getRoomPlaying');
+   }
 }

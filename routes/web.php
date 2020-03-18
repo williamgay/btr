@@ -25,3 +25,7 @@ Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('imag
 Route::get('captains', 'CaptainController@index')->name('captains');
 Route::get('general_information', 'PagesController@generalinformation')->name('general_information');
 Route::get('btrt_membership','PagesController@btrtMembership')->name('btrt_membership');
+Route::get('getting_started','PagesController@gettingStarted')->name('getting_started');
+Route::get('game_played','PagesController@gamePlayed')->name('game_played');
+Route::get('commissions_and_referrals','PagesController@commissions')->name('commissions');
+Route::get('how_to_get_your_room_playing', 'PagesController@getYourRoomPlaying')->name('getRoomPlaying');

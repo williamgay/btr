@@ -29,3 +29,6 @@ Route::get('getting_started','PagesController@gettingStarted')->name('getting_st
 Route::get('game_played','PagesController@gamePlayed')->name('game_played');
 Route::get('commissions_and_referrals','PagesController@commissions')->name('commissions');
 Route::get('how_to_get_your_room_playing', 'PagesController@getYourRoomPlaying')->name('getRoomPlaying');
+Route::get('how_to_play_from_home', 'PagesController@playFromHome')->name('playFromHome');
+Route::get('streaming', 'PagesController@streaming')->name('streaming');
+Route::get('rules', 'PagesController@rules')->name('rules');

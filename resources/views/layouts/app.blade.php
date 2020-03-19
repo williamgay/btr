@@ -43,26 +43,12 @@
                             <a class="dropdown-item" href="{{route('game_played')}}">Games Played</a>
                             <a class="dropdown-item" href="{{route('commissions')}}">Commissions and Referrals</a>
                             <a class="dropdown-item" href="{{route('getRoomPlaying')}}">How to Get Your Room Started</a>
-                            <a class="dropdown-item" href="../journal/">Journal</a>
-                            <a class="dropdown-item" href="../litera/">Litera</a>
-                            <a class="dropdown-item" href="../lumen/">Lumen</a>
-                            <a class="dropdown-item" href="../lux/">Lux</a>
-                            <a class="dropdown-item" href="../materia/">Materia</a>
-                            <a class="dropdown-item" href="../minty/">Minty</a>
-                            <a class="dropdown-item" href="../pulse/">Pulse</a>
-                            <a class="dropdown-item" href="../sandstone/">Sandstone</a>
-                            <a class="dropdown-item" href="../simplex/">Simplex</a>
-                            <a class="dropdown-item" href="../sketchy/">Sketchy</a>
-                            <a class="dropdown-item" href="../slate/">Slate</a>
-                            <a class="dropdown-item" href="../solar/">Solar</a>
-                            <a class="dropdown-item" href="../spacelab/">Spacelab</a>
-                            <a class="dropdown-item" href="../superhero/">Superhero</a>
-                            <a class="dropdown-item" href="../united/">United</a>
-                            <a class="dropdown-item" href="../yeti/">Yeti</a>
+                            <a class="dropdown-item" href="{{route('playFromHome')}}">How To Play From Home</a>
+                            <a class="dropdown-item" href="{{route('streaming')}}">Streaming</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="..">Rules</a>
+                        <a class="nav-link" href="{{route('rules')}}">Rules</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">Events</a>

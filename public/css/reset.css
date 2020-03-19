@@ -1,5 +1,5 @@
 .img1{
-    background-image: url('/imgs/pool1.png');
+    background-image: url('/imgs/pool1A.png');
     height: 290px;
 }
 .img >h2{
@@ -13,11 +13,11 @@
     border-radius: 25px;
 }
 .img2{
-    background-image: url('/imgs/pool2.png');
+    background-image: url('/imgs/pool2A.png');
     height: 290px;
 }
 .img3{
-    background-image: url('/imgs/pool3.png');
+    background-image: url('/imgs/pool3A.png');
     height: 290px;
 }
 .img4{

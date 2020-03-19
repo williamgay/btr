@@ -30,4 +30,16 @@ class PagesController extends Controller
    {
        return view('getRoomPlaying');
    }
+   public function playFromHome()
+   {
+       return view('playFromHome');
+   }
+   public function streaming()
+   {
+       return view('streaming');
+   }
+   public function rules()
+   {
+       return view('rules');
+   }
 }

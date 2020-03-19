@@ -16,9 +16,9 @@
                     If you’re interested in earning some part time income call us and we’ll help get you going.
                 </p>
                 <p>
-                    Any Questions, Call Anytime <span class = "redText">541-204-1929</span>.
+                    Any Questions, Call Anytime <a href="tel:5412041929">541-204-1929</a>.
                     This is a player’s tournament and we’re looking to the players do just that… play.
-                    We look forward to hearing from you, Behind the Rock <a href = "/">behindtherock.org</a> 541-204-1929.
+                    We look forward to hearing from you,  <a href = "/">Behind the Rock</a>.
                 </p>
                 <h2 class="centeredText">Location Benefits</h2>
                 <p>

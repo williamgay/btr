@@ -23,7 +23,6 @@
 # Dump of table countries
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `countries`;
 
 CREATE TABLE `countries` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -289,7 +288,7 @@ UNLOCK TABLES;
 # Dump of table failed_jobs
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `failed_jobs`;
+
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -306,7 +305,6 @@ CREATE TABLE `failed_jobs` (
 # Dump of table locations
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `locations`;
 
 CREATE TABLE `locations` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -460,7 +458,6 @@ UNLOCK TABLES;
 # Dump of table migrations
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `migrations`;
 
 CREATE TABLE `migrations` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -489,7 +486,6 @@ UNLOCK TABLES;
 # Dump of table model_has_permissions
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `model_has_permissions`;
 
 CREATE TABLE `model_has_permissions` (
   `permission_id` bigint(20) unsigned NOT NULL,
@@ -505,7 +501,7 @@ CREATE TABLE `model_has_permissions` (
 # Dump of table model_has_roles
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `model_has_roles`;
+
 
 CREATE TABLE `model_has_roles` (
   `role_id` bigint(20) unsigned NOT NULL,
@@ -535,7 +531,6 @@ CREATE TABLE `password_resets` (
 # Dump of table permissions
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `permissions`;
 
 CREATE TABLE `permissions` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -551,7 +546,6 @@ CREATE TABLE `permissions` (
 # Dump of table role_has_permissions
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `role_has_permissions`;
 
 CREATE TABLE `role_has_permissions` (
   `permission_id` bigint(20) unsigned NOT NULL,
@@ -567,7 +561,6 @@ CREATE TABLE `role_has_permissions` (
 # Dump of table roles
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `roles`;
 
 CREATE TABLE `roles` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -582,8 +575,6 @@ CREATE TABLE `roles` (
 
 # Dump of table states
 # ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `states`;
 
 CREATE TABLE `states` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -839,7 +830,6 @@ UNLOCK TABLES;
 # Dump of table users
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,

@@ -3,26 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Validator;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Validator;
 
 class UserController extends Controller
 {
     public function register(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'email' => 'required|email',
-            'password' => 'required',
-            'city' => 'required',
-            'state' => 'required',
-            'country' => 'required',
-            'location' => 'required',
-            'zip' => 'required',
-        ]);
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'firstName' => 'required',
+                'lastName' => 'required',
+                'email' => 'required|email',
+                'password' => 'required',
+                'city' => 'required',
+                'state' => 'required',
+                'country' => 'required',
+                'location' => 'required',
+                'zip' => 'required',
+            ]
+        );
 
         if ($validator->fails()) {
             return response()->json(['error' => $validator->errors()], 401);
@@ -41,5 +43,23 @@ class UserController extends Controller
     public function getDetails()
     {
         return response()->json(['success' => Auth::user()]);
+    }
+
+    public function update(Request $request)
+    {
+        $user = User::where('id', $request->id)->firstOrFail();
+        User::where('id', $user->id)->update([
+        'firstName' => $request->firstName,
+        'lastName' => $request->lastName,
+        'fargo' => $request->fargo,
+        'fargoAlt' => $request->fargoAlt,
+        'streetAddress' => $request->streetAddress,
+        'city' => $request->city,
+        'state' => $request->state,
+        'zip' => $request->zip,
+        'location' => $request->location,
+        'country' => $request->country,
+        'email' => $request->email,
+        ]);
     }
 }

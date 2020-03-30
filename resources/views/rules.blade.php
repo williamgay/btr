@@ -12,7 +12,7 @@
             </div>
         </div>
         <!-- Links to anchors in page -->
-        <div class="row" style="background-image: url('imgs/background1.png');">
+        <div class="row">
             <div class="col-md-3">
                 <p><a href="#_Toc17793125">1. Ghost. 5</a></p>
 

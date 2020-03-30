@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('zip');
             $table->string('location');
             $table->string('profile_img')->nullable();
+            $table->dateTime('deleted_at')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

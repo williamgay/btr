@@ -20,5 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('countries', 'CountryController@index');
 Route::get('states/{id}', 'StateController@index');
+Route::get('allstates', 'StateController@allstates');
 Route::get('locations', 'LocationController@index');
 Route::post('register', 'UserController@register');
+Route::post('updateprofile', 'UserController@update');
+Route::get('playerGoals/{id}', 'GoalsController@index');
+Route::post('addgoal', 'GoalsController@addgoal');

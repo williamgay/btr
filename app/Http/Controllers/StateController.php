@@ -17,4 +17,9 @@ class StateController extends Controller
            ->get();
        return StateResource::collection($states);
    }
+   public function allstates()
+   {
+       $states = State::all();
+       return StateResource::collection($states);
+   }
 }

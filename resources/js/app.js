@@ -23,6 +23,8 @@ import 'sweetalert2/src/sweetalert2.scss'
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('last-week', require('./components/LastWeeksWinners.vue').default);
 Vue.component('user-registration', require('./components/UserRegistration.vue').default);
+Vue.component('dashboard-component', require('./components/DashboardComponent.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

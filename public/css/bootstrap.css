@@ -3481,7 +3481,7 @@ input[type="button"].btn-block {
   color: #EBEBEB;
   text-align: left;
   list-style: none;
-  background-color: #4E5D6C;
+  background-color: #000;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0px;

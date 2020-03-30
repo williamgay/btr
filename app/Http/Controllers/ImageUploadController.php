@@ -34,11 +34,11 @@ class ImageUploadController extends Controller
         $imageName = time() . '.' . $request->image->extension();
 
         $request->image->move(public_path('images'), $imageName);
-$user = User::find(Auth::user()->id);
-$user->profileImg = $imageName;
-$user->save();
+        $user = User::find(Auth::user()->id);
+        $user->profile_img = $imageName;
+        $user->save();
         return back()
-            ->with('success', 'You have successfully upload image.')
+            ->with('success', 'You have successfully uploaded your image.')
             ->with('image', $imageName);
     }
 }
